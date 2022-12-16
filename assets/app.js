@@ -47,12 +47,8 @@ const animateFinalScore = () => {
     }, 10)
 }
 
-const hideSubmitButton = () => {
-    button.style.display = 'none'
-}
-
-const resetPage = () => {
-    reset.style.display = 'block'
+const resetUserScore = () => {
+    score = 0
 }
 
 form.addEventListener('submit', event => {
@@ -61,18 +57,11 @@ form.addEventListener('submit', event => {
     const userAnswers = getUserAnswers()
      
     
-
+    resetUserScore()
     calculateUserScore(userAnswers)
     showFinalScore()
     animateFinalScore()
-    resetPage()
-    hideSubmitButton()
-    
 })
 
-reset.addEventListener('click', () => {
-    scrollTo(0, 0)    
-    document.location.reload()
-        
-})
+
 
